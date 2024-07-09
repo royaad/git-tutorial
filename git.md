@@ -6,18 +6,22 @@ Let's explore the world of Git commands together!
 
 ## Table of Contents
 
-1. [Git GUI](#1-git-gui)
+1. [Github](#1-github)
 2. [Git Basics](#2-git-basics)
 3. [Git Configuration](#3-git-configuration)
 4. [Git Cloning](#4-git-cloning)
 5. [SSH (Secure Shell)](#5-ssh-secure-shell)
 6. [Initializing and Pushing a Local Repository](#6-initializing-and-pushing-a-local-repository)
 
-## 1. Git GUI
+## 1. Github
+
+### 1.1. Insights/Network
+
+### 1.2. Commits
+
+### 1.3. Default Branch Name
 
 To establish the default branch name through the git GUI, navigate to Settings → Repositories. Subsequently, input the desired default branch name for your new personal repositories.
-
-Here's the rephrased text in Markdown format:
 
 ## 2. `git` Basics
 
@@ -126,6 +130,12 @@ It is usually a good practice to configure the global configs of git as it offer
   git config --global column.ui auto
   git config --global column.branch plain
   git config --global branch.sort -committerdate
+  ```
+
+- Configure the init default branch to "main":
+
+  ```bash
+  git config --global init.defaultBranch main
   ```
 
 - Access global config editor (vim editor / press `i` to insert new lines, `:q!` to quit without saving, and `:wq` to save and quit):
@@ -505,6 +515,12 @@ Or
 git branch -vv
 To have a verbose display of all repos
 git branch -vva
+
+to change a branch name
+
+```sh
+git branch -m <old_name> <new_name>
+```
 
 ## Git clone/branch/push (from remote / in local / to remote)
 
