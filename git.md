@@ -484,6 +484,56 @@ Steps 1-6 are the same as in the previous scenario.
    git push origin master
    ```
 
+### 6.7. Removing a file from last commit
+
+To remove a file from the last commit before pushing, follow these steps:
+
+1. Check the files in the Last Commit:
+
+   ```bash
+   git show --name-only
+   ```
+
+   This command returns a list of files included in the **last** commit.
+
+2. Un-stage the File:
+
+   ```bash
+   git rm --cached path/to/file
+   ```
+
+   This command removes the file from the staging area but keeps it in your working directory.
+
+3. Amend the Commit:
+
+   ```bash
+   git commit --amend
+   ```
+
+   This will open your default text editor to edit the commit message. Save and close (`:wq`) the editor to complete the amend.
+
+4. Push the Changes (if already pushed):
+
+   ```bash
+   git push --force
+   ```
+
+   Use `--force` to overwrite the previous commit on the remote repository.
+
+### 6.8. Removing a directory from last commit
+
+To remove a directory from the last commit before pushing, we follow the same steps as [before](#67-removing-a-file-from-last-commit). The only required change is on step 2, where we need to type
+
+```bash
+git rm -r --cached path/to/directory
+```
+
+instead of
+
+```bash
+git rm --cached path/to/file
+```
+
 ## 7. Git Branching
 
 Check the list of existing branches.
