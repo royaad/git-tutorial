@@ -673,3 +673,75 @@ git diff 7b06 e89a
 Thanks for providing the link. Here's the revised text with the link added:
 
 Here's the revised text with corrected English:
+
+
+## Git LFS
+
+### Get Started
+
+To get started with Git LFS, first install it from the official website.
+
+After installation, initialize the hooks using:
+```bash
+git lfs install
+```
+
+Once the hooks are initialized, you can start tracking the desired files with Git LFS by typing:
+```bash
+git lfs track "*.zip"
+```
+
+This command, for example, will track all `.zip` files. It will create a `.gitattributes` file in the Git repository that specifies which files (patterns) to track.
+
+You can then start tracking the files with LFS by using the normal Git `add`, `commit`, and `push` commands.
+
+### Large File Limits
+
+While Git LFS allows for the upload of files larger than 200MB, it has different file size limits depending on your GitHub plan:
+
+- **GitHub Free and Pro**: Up to 2GB per file.
+- **GitHub Team**: Up to 4GB per file.
+- **GitHub Enterprise Cloud**: Up to 5GB per file.
+
+If your file exceeds these limits, Git LFS will reject it with an error message.
+
+### Large File Splitting
+
+To overcome these file size limitations, you can split a large file into smaller parts.
+
+#### On Linux
+
+You can use the `split` command on Unix/Linux systems:
+
+1. **Open Terminal**:
+   Navigate to the directory containing your file.
+
+2. **Use the `split` Command**:
+   To split a file into parts of 256MB each:
+   ```sh
+   split -b 256M large_file.pkl part_
+   ```
+
+3. **Reassemble the Parts**:
+   To reassemble the parts back into a single file:
+   ```sh
+   cat part_* > reassembled_file.pkl
+   ```
+
+#### On Windows
+
+For Windows, you can use 7-Zip to split and reassemble files.
+
+1. **Split the File**:
+   - Open 7-Zip File Manager.
+   - Navigate to your file, right-click, and select `Split file...`.
+   - Specify the part size (e.g., 256MB) and click `OK`.
+
+2. **Reassemble the Parts**:
+   - Select all parts, right-click, and choose `Combine files...`.
+
+This will help you manage large files effectively with Git LFS.
+
+## References
+
+- [Check if pull needed in Git](https://gist.github.com/yudistiraashadi/60fd36c7cb8ae9ed3427ab5919d2427f#check-if-pull-needed-in-git)
