@@ -58,126 +58,126 @@ git config -h
 
 `git config` is used to configure various aspects of Git. It has three levels:
 
-- Global: Configuration settings that apply globally to the user's system.
-- System: Configuration settings that apply to every user on the system and all repositories.
-- Local: Configuration settings that apply only to the current repository.
+-   Global: Configuration settings that apply globally to the user's system.
+-   System: Configuration settings that apply to every user on the system and all repositories.
+-   Local: Configuration settings that apply only to the current repository.
 
 ### Getting Configuration Information
 
-- To obtain a list of git configurations:
+-   To obtain a list of git configurations:
 
-  ```bash
-  git config -l
-  # or
-  # git config --list
-  ```
+    ```bash
+    git config -l
+    # or
+    # git config --list
+    ```
 
-- For only the global, system, or local configuration list:
+-   For only the global, system, or local configuration list:
 
-  ```bash
-  git config --global -l
-  git config --system -l
-  git config --local -l
-  ```
+    ```bash
+    git config --global -l
+    git config --system -l
+    git config --local -l
+    ```
 
-- To show the origin/source of each configuration:
+-   To show the origin/source of each configuration:
 
-  ```bash
-  git config -l --show-origin
-  ```
+    ```bash
+    git config -l --show-origin
+    ```
 
-- To retrieve a specific value from git config:
+-   To retrieve a specific value from git config:
 
-  ```bash
-  git config user.name
-  # or
-  # git config --get user.name
-  ```
+    ```bash
+    git config user.name
+    # or
+    # git config --get user.name
+    ```
 
 ### Configuring Git
 
 It is usually a good practice to configure the global configs of git as it offers ease of use for later.
 
-- Configure username globally:
+-   Configure username globally:
 
-  ```bash
-  git config --global user.name "royaad"
-  # or
-  # git config --global --set user.name "royaad"
-  ```
+    ```bash
+    git config --global user.name "royaad"
+    # or
+    # git config --global --set user.name "royaad"
+    ```
 
-- Configure user email globally:
+-   Configure user email globally:
 
-  ```bash
-  git config --global user.email "royaad@live.com"
-  ```
+    ```bash
+    git config --global user.email "royaad@live.com"
+    ```
 
-- Set the default branch name to main:
+-   Set the default branch name to main:
 
-  ```bash
-  git config --global init.defaultBranch main
-  ```
+    ```bash
+    git config --global init.defaultBranch main
+    ```
 
-- Enable reuse recorded resolution:
+-   Enable reuse recorded resolution:
 
-  ```bash
-  git config --global rerere.enabled true
-  ```
+    ```bash
+    git config --global rerere.enabled true
+    ```
 
-- Configure better branches display:
+-   Configure better branches display:
 
-  ```bash
-  git config --global column.ui auto
-  git config --global column.branch plain
-  git config --global branch.sort -committerdate
-  ```
+    ```bash
+    git config --global column.ui auto
+    git config --global column.branch plain
+    git config --global branch.sort -committerdate
+    ```
 
-- Configure the init default branch to "main":
+-   Configure the init default branch to "main":
 
-  ```bash
-  git config --global init.defaultBranch main
-  ```
+    ```bash
+    git config --global init.defaultBranch main
+    ```
 
-- Access global config editor (vim editor / press `i` to insert new lines, `:q!` to quit without saving, and `:wq` to save and quit):
+-   Access global config editor (vim editor / press `i` to insert new lines, `:q!` to quit without saving, and `:wq` to save and quit):
 
-  ```bash
-  git config --global --edit
-  ```
+    ```bash
+    git config --global --edit
+    ```
 
-- In case we need to remove/unset a variable (e.g. user email) globally:
+-   In case we need to remove/unset a variable (e.g. user email) globally:
 
-  ```bash
-  git config --global --unset user.email
-  ```
+    ```bash
+    git config --global --unset user.email
+    ```
 
 ### Customizing Git
 
 We can customize git to look better or create shortcut commands for easier use.
 
-- Example of assigning custom colors for status:
+-   Example of assigning custom colors for status:
 
-  ```plaintext
-  [color "status"]
+    ```plaintext
+    [color "status"]
     added = green
     changed = yellow
     untracked = red
-  ```
+    ```
 
-- Example of assigning custom colors for branches:
+-   Example of assigning custom colors for branches:
 
-  ```plaintext
-  [color "branch"]
+    ```plaintext
+    [color "branch"]
     remote = yellow
-  ```
+    ```
 
-- Setup an alias globally:
+-   Setup an alias globally:
 
-  ```bash
-  git config --global alias.st status
-  git config --global alias.comess "commit -m"
-  ```
+    ```bash
+    git config --global alias.st status
+    git config --global alias.comess "commit -m"
+    ```
 
-- For more useful git aliases, check [this link](https://opensource.com/article/20/11/git-aliases). This addition provides a link to more useful git aliases.
+-   For more useful git aliases, check [this link](https://opensource.com/article/20/11/git-aliases). This addition provides a link to more useful git aliases.
 
 ### Config CRLF
 
@@ -203,9 +203,9 @@ For further readings, refer to [link 1](https://stackoverflow.com/questions/1552
 
 2. **Repository Cloning**: Execute the cloning process in the local repository by employing the following command:
 
-```bash
-git clone <repository_URL>
-```
+    ```bash
+    git clone <repository_URL>
+    ```
 
 Please substitute `<repository_URL>` with the URL of your specific repository.
 
@@ -215,31 +215,31 @@ Please substitute `<repository_URL>` with the URL of your specific repository.
 
 1. **Cloning up to a certain depth**:
 
-   ```bash
-   git clone --depth=1 [https]
-   ```
+    ```bash
+    git clone --depth=1 [https]
+    ```
 
-   The command creates a shallow clone with a history truncated to the specified number of revisions. In this case, `--depth=1` creates a clone with only the latest commit. This is useful when working with large repositories where you only need the most recent changes.
+    The command creates a shallow clone with a history truncated to the specified number of revisions. In this case, `--depth=1` creates a clone with only the latest commit. This is useful when working with large repositories where you only need the most recent changes.
 
 2. **Fetching more depth**:
 
-   If you initially cloned a repository with a limited depth, but later need more of the history, you can use
+    If you initially cloned a repository with a limited depth, but later need more of the history, you can use
 
-   ```bash
-   git fetch --depth=100
-   ```
+    ```bash
+    git fetch --depth=100
+    ```
 
-   This command fetches more commits from the remote repository, extending the history to the specified number of commits. In this case, `--depth=100` fetches the latest 100 commits.
+    This command fetches more commits from the remote repository, extending the history to the specified number of commits. In this case, `--depth=100` fetches the latest 100 commits.
 
 3. **Downloading all remaining history**:
 
-   If you decide that you need the complete history, you can use
+    If you decide that you need the complete history, you can use
 
-   ```bash
-   git fetch --unshallow
-   ```
+    ```bash
+    git fetch --unshallow
+    ```
 
-   This command fetches all the remaining commits from the remote repository, effectively converting the shallow clone into a complete clone.
+    This command fetches all the remaining commits from the remote repository, effectively converting the shallow clone into a complete clone.
 
 ## 5. SSH (Secure Shell)
 
@@ -253,19 +253,19 @@ Now, let's proceed with the instructions:
 
 2. **SSH Key Generation**: Generate an SSH key using the RSA encryption algorithm with a key size of 4096 bits. This can be accomplished by executing the following command:
 
-   ```bash
-   ssh-keygen -t rsa -b 4096 -C "royaad@live.com"
-   ```
+    ```bash
+    ssh-keygen -t rsa -b 4096 -C "royaad@live.com"
+    ```
 
-   Please replace `"royaad@live.com"` with your specific email address.
+    Please replace `"royaad@live.com"` with your specific email address.
 
 3. **Binding to GitHub**: Establish a connection to GitHub from the local Git repository. This can be done by executing the following command:
 
-   ```bash
-   ssh -T git@github.com
-   ```
+    ```bash
+    ssh -T git@github.com
+    ```
 
-   This command attempts to SSH to GitHub, verifying that your machine has been correctly configured with your personal identity SSH key. If the connection is successful, you will see a message indicating that you've successfully authenticated. However, GitHub does not provide shell access.
+    This command attempts to SSH to GitHub, verifying that your machine has been correctly configured with your personal identity SSH key. If the connection is successful, you will see a message indicating that you've successfully authenticated. However, GitHub does not provide shell access.
 
 Please note that these instructions assume that you have already installed and configured Git and SSH on your machine. If not, you will need to do so before proceeding. Additionally, ensure that you replace `"royaad@live.com"` and `"git@github.com"` with your specific email address and GitHub account, respectively.
 
@@ -277,15 +277,15 @@ The inception of any local repository begins with its initialization. This is ac
 
 1. Navigate to the desired directory:
 
-   ```bash
-   cd <path-to-directory>
-   ```
+    ```bash
+    cd <path-to-directory>
+    ```
 
 2. Initialize the local repository:
 
-   ```bash
-   git init
-   ```
+    ```bash
+    git init
+    ```
 
 ### 6.2. Adding a Remote Repository
 
@@ -294,15 +294,15 @@ Upon initialization of the local repository, it is generally advisable to establ
 1. Navigate to github.com and create a **new, empty** repository.
 2. Link the local repository to the remote one:
 
-   ```bash
-   git remote add origin [https]
-   ```
+    ```bash
+    git remote add origin [https]
+    ```
 
 3. Verify the remote repository:
 
-   ```bash
-   git remote -v
-   ```
+    ```bash
+    git remote -v
+    ```
 
 **Note:** A local repository can be linked to multiple remote repositories. To add another remote repository named 'colab', execute:
 
@@ -316,110 +316,110 @@ In the absence of a specified repository, 'origin' serves as the default.
 
 Once the repository is initialized, new and modified files must be staged prior to being committed.
 
-- To stage all files, execute:
+-   To stage all files, execute:
 
-  ```bash
-  git add .
-  # or
-  # git add \*
-  ```
+    ```bash
+    git add .
+    # or
+    # git add \*
+    ```
 
-- More often, specific files are staged:
+-   More often, specific files are staged:
 
-  ```bash
-  git add <filename>
-  ```
+    ```bash
+    git add <filename>
+    ```
 
-- To remove a specific file from staging:
+-   To remove a specific file from staging:
 
-  ```bash
-  git reset head <file>
-  # or
-  # git restore --staged index.html
-  ```
+    ```bash
+    git reset head <file>
+    # or
+    # git restore --staged index.html
+    ```
 
 ### 6.4. Committing Changes
 
 After staging, the files should be committed. The commit operation creates a permanent snapshot of the repository with a unique SHA number, enabling access to any specific state of the repository.
 
-- To commit staged files:
-
-  ```bash
-  git commit -m "commit message"
-  ```
-
-- If a commit needs to be modified, the `--amend` flag can be used. For example:
-
-  - To amend the last commit message:
+-   To commit staged files:
 
     ```bash
-    git commit --amend -m "new commit message"
+    git commit -m "commit message"
     ```
 
-  - To add more changes to the last commit:
+-   If a commit needs to be modified, the `--amend` flag can be used. For example:
+
+    -   To amend the last commit message:
+
+        ```bash
+        git commit --amend -m "new commit message"
+        ```
+
+    -   To add more changes to the last commit:
+
+        ```bash
+        git add forgotten-file.txt
+        git commit --amend --no-edit
+        ```
+
+-   To undo the last commit while preserving the changes in the working directory for further editing:
 
     ```bash
-    git add forgotten-file.txt
-    git commit --amend --no-edit
+    git reset --soft HEAD~1
     ```
-
-- To undo the last commit while preserving the changes in the working directory for further editing:
-
-  ```bash
-  git reset --soft HEAD~1
-  ```
 
 ### 6.5. Pushing Changes to Remote
 
 After committing the changes to the local repository, they must be pushed to the remote repository to synchronize the two.
 
-- The standard syntax to push a commit to the remote repository is:
+-   The standard syntax to push a commit to the remote repository is:
 
-  ```bash
-  git push [remote] [from]:[to]
-  ```
+    ```bash
+    git push [remote] [from]:[to]
+    ```
 
-  However, more often we use:
+    However, more often we use:
 
-  ```bash
-  git push [remote] [to]
-  ```
+    ```bash
+    git push [remote] [to]
+    ```
 
-  Or more specifically:
+    Or more specifically:
 
-  ```bash
-  git push origin master
-  ```
+    ```bash
+    git push origin master
+    ```
 
-  Or simply:
+    Or simply:
 
-  ```bash
-  git push
-  ```
+    ```bash
+    git push
+    ```
 
-  By default, the remote repository and branch are set to 'origin' and 'master' or 'main', respectively.
+    By default, the remote repository and branch are set to 'origin' and 'master' or 'main', respectively.
 
-- When pushing for the first time, if the branch doesn’t exist on the remote repository, it must be set up:
+-   When pushing for the first time, if the branch doesn’t exist on the remote repository, it must be set up:
 
-  ```bash
-  git push -u origin master
-  # or
-  # git push --set-upstream origin master
-  ```
+    ```bash
+    git push -u origin master
+    # or
+    # git push --set-upstream origin master
+    ```
 
-- To push all matching branches:
+-   To push all matching branches:
 
-  ```bash
-  git push origin :
-  ```
+    ```bash
+    git push origin :
+    ```
 
-- Specific branches can be pushed to sub-branches of other repositories:
+-   Specific branches can be pushed to sub-branches of other repositories:
 
-  ```bash
-  git push colab master:satellite/master dev:satellite/dev
-  ```
+    ```bash
+    git push colab master:satellite/master dev:satellite/dev
+    ```
 
-  In this case, the local 'master' branch is pushed to the 'satellite/master' branch of the 'colab' remote repository, and the local 'dev' branch is pushed to the 'satellite/dev' branch of the same remote repository.
+    In this case, the local 'master' branch is pushed to the 'satellite/master' branch of the 'colab' remote repository, and the local 'dev' branch is pushed to the 'satellite/dev' branch of the same remote repository.
 
 For more examples of push operations, refer to the [official Git documentation](https://git-scm.com/docs/git-push#_examples).
 
@@ -430,40 +430,40 @@ For more examples of push operations, refer to the [official Git documentation](
 1. Open a command prompt in the directory to be pushed.
 2. Initialize the directory as a local repository:
 
-   ```bash
-   git init
-   ```
+    ```bash
+    git init
+    ```
 
 3. Stage the files for their first commit:
 
-   ```bash
-   git add .
-   ```
+    ```bash
+    git add .
+    ```
 
 4. Check the status:
 
-   ```bash
-   git status
-   ```
+    ```bash
+    git status
+    ```
 
 5. Commit the files:
 
-   ```bash
-   git commit -m "first commit"
-   ```
+    ```bash
+    git commit -m "first commit"
+    ```
 
 6. Add the URL of the repository (only the first time):
 
-   ```bash
-   git remote add origin [https]
-   ```
+    ```bash
+    git remote add origin [https]
+    ```
 
 7. Push the repository:
 
-   ```bash
-   git push -u origin master
-   # the -u flag is used only the first time
-   ```
+    ```bash
+    git push -u origin master
+    # the -u flag is used only the first time
+    ```
 
 **Note:** It is generally good practice to pull changes before pushing. The pull operation will be discussed in a subsequent section.
 
@@ -471,18 +471,21 @@ For more examples of push operations, refer to the [official Git documentation](
 
 Steps 1-6 are the same as in the previous scenario.
 
+<!-- markdownlint-disable MD029 -->
+
 7. Since the remote repository is not empty, the remote files should be pulled first. However, this is not a normal pull operation since the two repositories do not share a related history. Care must be taken to ensure that the pull operation does not result in a loss of files. To pull the repository:
 
-   ```bash
-      git pull --allow-unrelated-histories origin
-
-   ```
+    ```bash
+    git pull --allow-unrelated-histories origin
+    ```
 
 8. Push the repository (the 'master' branch is already set, so the '-u' flag is not needed):
 
-   ```bash
-   git push origin master
-   ```
+    ```bash
+    git push origin master
+    ```
+
+    <!-- markdownlint-enable MD029 -->
 
 ### 6.7. Removing a file from last commit
 
@@ -490,35 +493,35 @@ To remove a file from the last commit before pushing, follow these steps:
 
 1. Check the files in the Last Commit:
 
-   ```bash
-   git show --name-only
-   ```
+    ```bash
+    git show --name-only
+    ```
 
-   This command returns a list of files included in the **last** commit.
+    This command returns a list of files included in the **last** commit.
 
 2. Un-stage the File:
 
-   ```bash
-   git rm --cached path/to/file
-   ```
+    ```bash
+    git rm --cached path/to/file
+    ```
 
-   This command removes the file from the staging area but keeps it in your working directory.
+    This command removes the file from the staging area but keeps it in your working directory.
 
 3. Amend the Commit:
 
-   ```bash
-   git commit --amend
-   ```
+    ```bash
+    git commit --amend
+    ```
 
-   This will open your default text editor to edit the commit message. Save and close (`:wq`) the editor to complete the amend.
+    This will open your default text editor to edit the commit message. Save and close (`:wq`) the editor to complete the amend.
 
 4. Push the Changes (if already pushed):
 
-   ```bash
-   git push --force
-   ```
+    ```bash
+    git push --force
+    ```
 
-   Use `--force` to overwrite the previous commit on the remote repository.
+    Use `--force` to overwrite the previous commit on the remote repository.
 
 ### 6.8. Removing a directory from last commit
 
@@ -670,11 +673,6 @@ git diff
 Or between two specific commits
 git diff 7b06 e89a
 
-Thanks for providing the link. Here's the revised text with the link added:
-
-Here's the revised text with corrected English:
-
-
 ## Git LFS
 
 ### Get Started
@@ -682,11 +680,13 @@ Here's the revised text with corrected English:
 To get started with Git LFS, first install it from the official website.
 
 After installation, initialize the hooks using:
+
 ```bash
 git lfs install
 ```
 
 Once the hooks are initialized, you can start tracking the desired files with Git LFS by typing:
+
 ```bash
 git lfs track "*.zip"
 ```
@@ -697,11 +697,11 @@ You can then start tracking the files with LFS by using the normal Git `add`, `c
 
 ### Large File Limits
 
-While Git LFS allows for the upload of files larger than 200MB, it has different file size limits depending on your GitHub plan:
+While Git LFS allows for the upload of files larger than 200MB, it has different file size limits depending on your GitHub [plan](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage#about-git-large-file-storage):
 
-- **GitHub Free and Pro**: Up to 2GB per file.
-- **GitHub Team**: Up to 4GB per file.
-- **GitHub Enterprise Cloud**: Up to 5GB per file.
+-   **GitHub Free and Pro**: Up to 2GB per file.
+-   **GitHub Team**: Up to 4GB per file.
+-   **GitHub Enterprise Cloud**: Up to 5GB per file.
 
 If your file exceeds these limits, Git LFS will reject it with an error message.
 
@@ -718,30 +718,99 @@ You can use the `split` command on Unix/Linux systems:
 
 2. **Use the `split` Command**:
    To split a file into parts of 256MB each:
-   ```sh
-   split -b 256M large_file.pkl part_
-   ```
+
+    ```sh
+    split -b 256M large_file.pkl part_
+    ```
 
 3. **Reassemble the Parts**:
    To reassemble the parts back into a single file:
-   ```sh
-   cat part_* > reassembled_file.pkl
-   ```
+
+    ```sh
+    cat part_* > reassembled_file.pkl
+    ```
 
 #### On Windows
 
 For Windows, you can use 7-Zip to split and reassemble files.
 
 1. **Split the File**:
-   - Open 7-Zip File Manager.
-   - Navigate to your file, right-click, and select `Split file...`.
-   - Specify the part size (e.g., 256MB) and click `OK`.
+
+    - Open 7-Zip File Manager.
+    - Navigate to your file, right-click, and select `Split file...`.
+    - Specify the part size (e.g., 256MB) and click `OK`.
 
 2. **Reassemble the Parts**:
-   - Select all parts, right-click, and choose `Combine files...`.
+    - Select all parts, right-click, and choose `Combine files...`.
 
 This will help you manage large files effectively with Git LFS.
 
+### Deleting large files from repo
+
+#### Local Repo
+
+To remove files from Git history using only Git, we can use the `git filter-branch` command. Here’s a step-by-step guide:
+
+1. **Create a Backup**
+
+    Before making any changes, it's a good idea to create a backup of your repository:
+
+    ```bash
+    git clone --mirror <repository-url> <backup-directory>
+    ```
+
+2. **Stop Tracking Files in _.gitattributes_**
+3. **Use `git filter-branch` to Remove Files**
+
+    Run the following command to remove the files from your Git history:
+
+    ```bash
+    git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch *_part_*' --prune-empty --tag-name-filter cat -- --all
+    ```
+
+    This command will rewrite the history of your repository, removing the specified files from all commits.
+
+4. **Clean Up the Repository**
+
+    After running `git filter-branch`, clean up the repository to remove any leftover references:
+
+    ```bash
+    rm -rf .git/refs/original/
+    git reflog expire --expire=now --all
+    git gc --prune=now --aggressive
+    git lfs prune
+    ```
+
+#### Remote Repo
+
+Unfortunately, GitHub does not automatically delete LFS objects from remote storage. [You need to delete and recreate the repository](https://docs.github.com/en/repositories/working-with-files/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository). Here’s a step-by-step guide:
+
+1. **Backup your local repository**:
+
+    ```bash
+    git clone --mirror <repository-url> <backup-directory>
+    ```
+
+2. **Delete the remote repository** on GitHub.
+3. **Create a new remote repository** on GitHub.
+4. **Update the remote URL** in your local repository:
+
+    ```bash
+    git remote set-url origin <new-repository-url>
+    ```
+
+5. **Push your local repository** to the new remote:
+
+    ```bash
+    git push origin --all
+    git push origin --tags
+    ```
+
+This method will ensure that all old LFS objects are removed from the remote storage.
+
 ## References
 
-- [Check if pull needed in Git](https://gist.github.com/yudistiraashadi/60fd36c7cb8ae9ed3427ab5919d2427f#check-if-pull-needed-in-git)
+-   [Check if pull needed in Git](https://gist.github.com/yudistiraashadi/60fd36c7cb8ae9ed3427ab5919d2427f#check-if-pull-needed-in-git)
+-   [Protect secrets in Git with the clean/smudge filter](https://developers.redhat.com/articles/2022/02/02/protect-secrets-git-cleansmudge-filter)
+-   [How can I delete files in the repository while keeping (and ignoring) them locally?](https://stackoverflow.com/questions/3160764/how-can-i-delete-files-in-the-repository-while-keeping-and-ignoring-them-local)
+-   [Managing Large Files in Git: Removing Files from History](https://hkim-dev.github.io/programming/Managing-Large-Files-in-Git-Removing-Files-from-History/)
