@@ -6,14 +6,14 @@ Let's explore the world of Git commands together!
 
 ## Table of Contents
 
-1. [Github](#1-github)
+1. [GitHub](#1-github)
 2. [Git Basics](#2-git-basics)
 3. [Git Configuration](#3-git-configuration)
 4. [Git Cloning](#4-git-cloning)
 5. [SSH (Secure Shell)](#5-ssh-secure-shell)
 6. [Initializing and Pushing a Local Repository](#6-initializing-and-pushing-a-local-repository)
 
-## 1. Github
+## 1. GitHub
 
 ### 1.1. Insights/Network
 
@@ -537,6 +537,67 @@ instead of
 git rm --cached path/to/file
 ```
 
+### 6.9. Cleaning tracked files from Git
+
+Sometimes large files get committed to a Git repository by mistake, which can cause push failures—especially when using platforms like GitHub that enforce a strict file size limit (e.g., 100 MB per file). Even if you add the file to `.gitignore`, Git will still track it if it was already committed.
+
+This section outlines how to safely remove such files from your Git history and prevent future issues.
+
+#### Problem
+
+You may encounter an error like:
+
+```plaintext
+remote: error: File <filename> is 2145.44 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected.
+```
+
+#### Solution
+
+#### 1. **Stop Tracking the File**
+
+```shell
+git rm --cached path/to/large_file
+echo "path/to/large_file" &gt;&gt; .gitignore
+git commit -m "Remove large file from tracking"
+```
+
+#### 2. **Remove the File from Git History**
+
+If the file was committed earlier, use `git filter-repo` to remove it from the entire history:
+
+```shell
+git filter-repo --path path/to/large_file --invert-paths
+```
+
+> [!CAUTION]
+> This rewrites history. Make sure collaborators are informed before proceeding.
+
+> [!NOTE]
+> If you don’t have `git filter-repo`, you can install it via:
+>
+> ```shell
+> pip install git-filter-repo   # Python
+> ```
+
+#### 3. **Force Push the Cleaned Repository**
+
+```Shell
+git push origin master --force
+```
+
+#### Recommendation
+
+To avoid this in the future:
+
+-   Use `.gitignore` to exclude large or generated files.
+-   Consider using Git LFS for versioning large files if they must be tracked.
+-   Review file sizes before committing with:
+
+    ```shell
+        git ls-files | xargs -I{} du -sh {}
+    ```
+
 ## 7. Git Branching
 
 Check the list of existing branches.
@@ -685,6 +746,12 @@ After installation, initialize the hooks using:
 git lfs install
 ```
 
+You can check the Git LFS version by typing:
+
+```bash
+git lfs -v
+```
+
 Once the hooks are initialized, you can start tracking the desired files with Git LFS by typing:
 
 ```bash
@@ -694,6 +761,12 @@ git lfs track "*.zip"
 This command, for example, will track all `.zip` files. It will create a `.gitattributes` file in the Git repository that specifies which files (patterns) to track.
 
 You can then start tracking the files with LFS by using the normal Git `add`, `commit`, and `push` commands.
+
+You can list tracked files using
+
+```bash
+git lfs ls-files
+```
 
 ### Large File Limits
 
