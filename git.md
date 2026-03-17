@@ -29,8 +29,9 @@ Let's explore some fundamental `git` commands to kickstart our journey.
 
 To display the version of `git`, use the following command:
 
-```bash
-git --version
+```shell session
+$ git --version
+# git version 2.43.0.windows.1
 ```
 
 For a comprehensive list of `git` commands:
@@ -66,8 +67,8 @@ git config -h
 
 -   To obtain a list of git configurations:
 
-    ```bash
-    git config -l
+    ```shell session
+    $ git config -l
     # or
     # git config --list
     ```
