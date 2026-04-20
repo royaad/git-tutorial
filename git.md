@@ -672,6 +672,45 @@ git branch -d alpha
 To delete the branch remotely, we can use the github GUI “Code” ↦ “branches” or by code by pushing the name of the branch with a column,
 git push origin :alpha
 
+## Overwrite a Specific File From Another Branch
+
+Follow these steps to overwrite a file in your current branch with the version from another branch, optionally selecting changes interactively.
+
+### 1. Switch to the Target Branch
+
+First, check out the branch where you want the file to be updated:
+
+```sh
+git checkout <target_branch>
+```
+
+### 2. Overwrite the File From the Source Branch
+
+Use `--patch` mode to interactively apply changes from the source branch:
+
+```sh
+git checkout --patch <source_branch> <file>
+```
+
+### 3. Review and Select Changes
+
+Git will split the file into sections (called _hunks_) and show the differences for each one.  
+For every hunk, you’ll be prompted to decide how to handle it.
+
+The most commonly used options are:
+
+- **`y`** — Apply all changes in this hunk
+- **`n`** — Skip this hunk and keep the current version
+- **`e`** — Edit the hunk manually to select specific changes
+
+### 4. Commit the Changes
+
+Once you’ve applied the desired changes, commit them:
+
+```sh
+git commit -m "Overwrite <file> from <source_branch>"
+```
+
 ## Git checkout old commits
 
 Before reverting, we need to check the log by typing
